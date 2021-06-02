@@ -31,6 +31,7 @@ function App() {
             path="/allblogs"
             component={AllBlogsPage}
             token={token}
+            user={user}
             setToken={setToken}
             setUser={setUser}
           />
