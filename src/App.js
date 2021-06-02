@@ -31,6 +31,8 @@ function App() {
             path="/allblogs"
             component={AllBlogsPage}
             token={token}
+            setToken={setToken}
+            setUser={setUser}
           />
           <Route path="">
             <Redirect to="/allblogs" />
