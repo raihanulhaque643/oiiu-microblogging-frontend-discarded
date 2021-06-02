@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import axios from "axios";
 
-const CreateBlogForm = ({ token, user }) => {
+const CreateBlogForm = ({ token, user, setNewDataExists }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -23,6 +23,7 @@ const CreateBlogForm = ({ token, user }) => {
       console.log(response);
       setLoading(false);
       setErrorMessage("");
+      setNewDataExists(true);
     } catch (e) {
       console.log({ e });
       setLoading(false);
@@ -31,7 +32,7 @@ const CreateBlogForm = ({ token, user }) => {
   };
 
   return (
-    <div className="bg-white p-4 m-4 flex flex-col w-80">
+    <div className="bg-white p-4 m-4 flex flex-col w-full md:w-6/12">
       <div className="text-3xl text-gray-500 mb-4 font-semibold">Hi {firstName}, <br/> Write a post...</div>
       <Formik
         initialValues={{ description: "" }}
@@ -46,6 +47,7 @@ const CreateBlogForm = ({ token, user }) => {
           setLoading(true);
           handlePost(values);
           setSubmitting(false);
+          values.description('');
         }}
       >
         {({ isSubmitting }) => (
