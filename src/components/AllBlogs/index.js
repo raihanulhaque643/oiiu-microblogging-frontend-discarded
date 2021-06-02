@@ -57,6 +57,7 @@ const AllBlogs = ({ token, user, newDataExists }) => {
               description={item.description}
               owner={item.owner}
               likes={item.likes}
+              _id={item._id}
             />
           );
         })

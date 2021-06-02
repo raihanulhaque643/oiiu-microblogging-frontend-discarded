@@ -6,7 +6,7 @@ const CreateBlogForm = ({ token, user, setNewDataExists }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const firstName = JSON.parse(localStorage.getItem('user')).firstName;
+  const firstName = localStorage.getItem('user').firstName;
 
   const handlePost = async ({ description }) => {
     try {
